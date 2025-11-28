@@ -59,6 +59,15 @@ export default function Home() {
 <Link href="/fd-rd-calculator" className="nav-pill">
   FD / RD Calculator
 </Link>
+<Link href="/countdown" className="nav-pill">
+  Countdown Timer
+</Link>
+<Link href="/stopwatch" className="nav-pill">
+  Stopwatch
+</Link>
+<Link href="/time-zone-converter" className="nav-pill">
+  Time Zone Converter
+</Link>
 </div>
 
         </div>
