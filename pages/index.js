@@ -68,6 +68,12 @@ export default function Home() {
 <Link href="/time-zone-converter" className="nav-pill">
   Time Zone Converter
 </Link>
+<Link href="/currency-converter" className="nav-pill">
+  Currency Converter
+</Link>
+<Link href="/unit-converter" className="nav-pill">
+  Unit Converter
+</Link>
 </div>
 
         </div>
