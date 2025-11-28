@@ -23,22 +23,29 @@ export default function Home() {
           </p>
 
           <div className="nav-links">
-            <Link href="/calculator" className="nav-pill">
-              Standard Calculator
-            </Link>
-            <Link href="/emi-calculator" className="nav-pill">
-              Loan EMI Calculator
-            </Link>
-            <Link href="/percent-calculator" className="nav-pill">
-              Percent Calculator
-            </Link>
-            <Link href="/age-calculator" className="nav-pill">
-              Age Calculator
-            </Link>
-            <Link href="/bmi-calculator" className="nav-pill">
-              BMI Calculator
-            </Link>
-          </div>
+  <Link href="/calculator" className="nav-pill">
+    Standard Calculator
+  </Link>
+  <Link href="/emi-calculator" className="nav-pill">
+    Loan EMI Calculator
+  </Link>
+  <Link href="/percent-calculator" className="nav-pill">
+    Percent Calculator
+  </Link>
+  <Link href="/age-calculator" className="nav-pill">
+    Age Calculator
+  </Link>
+  <Link href="/bmi-calculator" className="nav-pill">
+    BMI Calculator
+  </Link>
+  <Link href="/time-zone-converter" className="nav-pill">
+    Time Zone Converter
+  </Link>
+  <Link href="/date-calculator" className="nav-pill">
+    Date Calculator
+  </Link>
+</div>
+
         </div>
       </main>
     </div>
