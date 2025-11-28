@@ -1,142 +1,61 @@
 import { useState } from "react";
 import Link from "next/link";
 
-// Basic fixed-offset time zones (no DST handling – good enough for a simple tool)
-const TIMEZONES = [
-  { id: "UTC", label: "UTC (Coordinated Universal Time)", offsetMinutes: 0 },
-  {
-    id: "Asia/Kolkata",
-    label: "India Standard Time (IST, UTC+5:30)",
-    offsetMinutes: 5.5 * 60
-  },
-  {
-    id: "Asia/Dubai",
-    label: "Gulf Standard Time (GST, UTC+4)",
-    offsetMinutes: 4 * 60
-  },
-  {
-    id: "Europe/London",
-    label: "UK Time (UTC+0)",
-    offsetMinutes: 0
-  },
-  {
-    id: "Europe/Berlin",
-    label: "Central European Time (UTC+1)",
-    offsetMinutes: 1 * 60
-  },
-  {
-    id: "America/New_York",
-    label: "Eastern Time (UTC-5 approx.)",
-    offsetMinutes: -5 * 60
-  },
-  {
-    id: "America/Los_Angeles",
-    label: "Pacific Time (UTC-8 approx.)",
-    offsetMinutes: -8 * 60
-  },
-  {
-    id: "Asia/Tokyo",
-    label: "Japan Standard Time (UTC+9)",
-    offsetMinutes: 9 * 60
-  },
-  {
-    id: "Australia/Sydney",
-    label: "Australian Eastern Time (UTC+10 approx.)",
-    offsetMinutes: 10 * 60
-  }
-];
-
-function formatDateTimeUTC(dt) {
-  const pad = (n) => String(n).padStart(2, "0");
-  const year = dt.getUTCFullYear();
-  const month = pad(dt.getUTCMonth() + 1);
-  const day = pad(dt.getUTCDate());
-  const hours = pad(dt.getUTCHours());
-  const minutes = pad(dt.getUTCMinutes());
-
-  return {
-    date: `${year}-${month}-${day}`,
-    time: `${hours}:${minutes}`,
-    display: `${day}-${month}-${year} ${hours}:${minutes}`
-  };
+function parseDate(dateStr) {
+  if (!dateStr) return null;
+  const dt = new Date(dateStr + "T00:00:00");
+  if (isNaN(dt.getTime())) return null;
+  return dt;
 }
 
-export default function TimeZoneConverterPage() {
+function formatDisplayDate(dateStr) {
+  if (!dateStr) return "";
+  const parts = dateStr.split("-");
+  if (parts.length !== 3) return dateStr;
+  const [y, m, d] = parts;
+  return `${d}-${m}-${y}`;
+}
+
+export default function DateCalculatorPage() {
   const today = new Date();
   const pad = (n) => String(n).padStart(2, "0");
-  const defaultDate = `${today.getFullYear()}-${pad(today.getMonth() + 1)}-${pad(
+  const todayStr = `${today.getFullYear()}-${pad(today.getMonth() + 1)}-${pad(
     today.getDate()
   )}`;
 
-  const [fromZoneId, setFromZoneId] = useState("Asia/Kolkata");
-  const [toZoneId, setToZoneId] = useState("UTC");
-  const [date, setDate] = useState(defaultDate);
-  const [time, setTime] = useState("09:00");
+  const [startDate, setStartDate] = useState(todayStr);
+  const [endDate, setEndDate] = useState(todayStr);
   const [result, setResult] = useState(null);
 
-  const handleConvert = () => {
-    if (!date || !time) {
+  const calculate = () => {
+    const from = parseDate(startDate);
+    const to = parseDate(endDate);
+
+    if (!from || !to) {
       setResult(null);
       return;
     }
 
-    const [year, month, day] = date.split("-").map((v) => parseInt(v, 10));
-    const [hour, minute] = time.split(":").map((v) => parseInt(v, 10));
+    const fromMid = new Date(from.getFullYear(), from.getMonth(), from.getDate());
+    const toMid = new Date(to.getFullYear(), to.getMonth(), to.getDate());
 
-    if (
-      isNaN(year) ||
-      isNaN(month) ||
-      isNaN(day) ||
-      isNaN(hour) ||
-      isNaN(minute)
-    ) {
-      setResult(null);
-      return;
-    }
+    const diffMs = toMid.getTime() - fromMid.getTime();
+    const diffDays = diffMs / (1000 * 60 * 60 * 24);
 
-    const fromZone = TIMEZONES.find((z) => z.id === fromZoneId);
-    const toZone = TIMEZONES.find((z) => z.id === toZoneId);
-    if (!fromZone || !toZone) {
-      setResult(null);
-      return;
-    }
+    const days = Math.abs(diffDays);
+    const inclusiveDays = days + 1;
 
-    const fromOffset = fromZone.offsetMinutes;
-    const toOffset = toZone.offsetMinutes;
-
-    // Treat the input as local time in the "from" zone, but build it in UTC space
-    const baseUtcMs = Date.UTC(year, month - 1, day, hour, minute);
-
-    // Convert: first remove from-zone offset to get pure UTC, then add target-zone offset
-    const targetUtcMs = baseUtcMs - fromOffset * 60000 + toOffset * 60000;
-    const targetDate = new Date(targetUtcMs);
-
-    const formatted = formatDateTimeUTC(targetDate);
-
-    // Compute date difference (in days) between input local date and target local date
-    const inputMidUtc = Date.UTC(year, month - 1, day);
-    const targetMidUtc = Date.UTC(
-      targetDate.getUTCFullYear(),
-      targetDate.getUTCMonth(),
-      targetDate.getUTCDate()
-    );
-
-    const diffDays = Math.round(
-      (targetMidUtc - inputMidUtc) / (1000 * 60 * 60 * 24)
-    );
-
-    let dayNote = "";
-    if (diffDays === 1) dayNote = "Next day in target time zone";
-    else if (diffDays === -1) dayNote = "Previous day in target time zone";
-    else if (diffDays > 1) dayNote = `${diffDays} days ahead in target time zone`;
-    else if (diffDays < -1)
-      dayNote = `${Math.abs(diffDays)} days behind in target time zone`;
+    let direction = "";
+    if (diffDays > 0) direction = "End date is after start date";
+    else if (diffDays < 0) direction = "End date is before start date";
+    else direction = "Both dates are the same";
 
     setResult({
-      targetDate: formatted.date,
-      targetTime: formatted.time,
-      display: formatted.display,
-      dayNote
+      start: startDate,
+      end: endDate,
+      days,
+      inclusiveDays,
+      direction
     });
   };
 
@@ -144,12 +63,11 @@ export default function TimeZoneConverterPage() {
     <div className="page-root">
       <main className="page-container">
         <header className="page-header">
-          <div className="badge">Time Tool</div>
-          <h1 className="page-title">Time Zone Converter</h1>
+          <div className="badge">Date Tool</div>
+          <h1 className="page-title">Days Between Dates Calculator</h1>
           <p className="page-subtitle">
-            Convert a date and time from one time zone to another. Perfect for meetings,
-            calls, live events, and global teams. (Uses fixed UTC offsets and does not
-            adjust for daylight saving time.)
+            Quickly find how many days are between two dates. Useful for leave counting,
+            project timelines, subscriptions, or events.
           </p>
           <div className="nav-links" style={{ marginTop: 10 }}>
             <Link href="/" className="nav-pill">
@@ -162,83 +80,67 @@ export default function TimeZoneConverterPage() {
           <div className="grid grid-2">
             <div>
               <div className="field">
-                <label className="label">From time zone</label>
-                <select
-                  className="select"
-                  value={fromZoneId}
-                  onChange={(e) => setFromZoneId(e.target.value)}
-                >
-                  {TIMEZONES.map((z) => (
-                    <option key={z.id} value={z.id}>
-                      {z.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="field">
-                <label className="label">To time zone</label>
-                <select
-                  className="select"
-                  value={toZoneId}
-                  onChange={(e) => setToZoneId(e.target.value)}
-                >
-                  {TIMEZONES.map((z) => (
-                    <option key={z.id} value={z.id}>
-                      {z.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="field">
-                <label className="label">Date</label>
+                <label className="label">Start date</label>
                 <input
                   className="input"
                   type="date"
-                  value={date}
-                  onChange={(e) => setDate(e.target.value)}
+                  value={startDate}
+                  onChange={(e) => setStartDate(e.target.value)}
                 />
               </div>
 
               <div className="field">
-                <label className="label">Time</label>
+                <label className="label">End date</label>
                 <input
                   className="input"
-                  type="time"
-                  value={time}
-                  onChange={(e) => setTime(e.target.value)}
+                  type="date"
+                  value={endDate}
+                  onChange={(e) => setEndDate(e.target.value)}
                 />
               </div>
 
               <button
                 type="button"
                 className="btn"
-                onClick={handleConvert}
+                onClick={calculate}
               >
-                Convert Time
+                Calculate Days
               </button>
               <p className="helper-text">
-                This basic converter uses fixed UTC offsets only. For exact DST-aware
-                conversions, always confirm with a calendar/app.
+                Time of day is ignored — only calendar dates are used for this
+                calculation.
               </p>
             </div>
 
             <div>
               <div className="result-box">
-                <div className="result-title">Converted Time</div>
+                <div className="result-title">Difference</div>
                 <div className="result-value" style={{ fontSize: "1.05rem" }}>
-                  {result ? result.display : "—"}
+                  {result
+                    ? `${result.days} day${result.days === 1 ? "" : "s"} between`
+                    : "—"}
                 </div>
               </div>
 
-              {result?.dayNote && (
-                <p
-                  className="helper-text"
-                  style={{ marginTop: 10, color: "#4b5563" }}
-                >
-                  {result.dayNote}
-                </p>
+              {result && (
+                <>
+                  <div className="result-box" style={{ marginTop: 10 }}>
+                    <div className="result-title">Inclusive difference</div>
+                    <div className="result-value" style={{ fontSize: "1rem" }}>
+                      {result.inclusiveDays} day
+                      {result.inclusiveDays === 1 ? "" : "s"} (including both start and
+                      end dates)
+                    </div>
+                  </div>
+
+                  <p className="helper-text" style={{ marginTop: 10 }}>
+                    From{" "}
+                    <strong>{formatDisplayDate(result.start)}</strong> to{" "}
+                    <strong>{formatDisplayDate(result.end)}</strong>.
+                    <br />
+                    {result.direction}.
+                  </p>
+                </>
               )}
             </div>
           </div>

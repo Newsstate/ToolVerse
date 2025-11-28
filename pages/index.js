@@ -38,12 +38,27 @@ export default function Home() {
   <Link href="/bmi-calculator" className="nav-pill">
     BMI Calculator
   </Link>
-  <Link href="/time-zone-converter" className="nav-pill">
-    Time Zone Converter
-  </Link>
   <Link href="/date-calculator" className="nav-pill">
     Date Calculator
   </Link>
+  <Link href="/sip-calculator" className="nav-pill">
+  SIP Calculator
+ </Link>
+<Link href="/compound-interest-calculator" className="nav-pill">
+  Compound Interest / FD Calculator
+</Link>
+<Link href="/gst-calculator" className="nav-pill">
+  GST Calculator
+</Link>
+<Link href="/credit-card-calculator" className="nav-pill">
+  Credit Card Interest Calculator
+</Link>
+<Link href="/salary-calculator" className="nav-pill">
+  Salary / Net Pay Calculator
+</Link>
+<Link href="/fd-rd-calculator" className="nav-pill">
+  FD / RD Calculator
+</Link>
 </div>
 
         </div>
