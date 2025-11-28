@@ -74,6 +74,9 @@ export default function Home() {
 <Link href="/unit-converter" className="nav-pill">
   Unit Converter
 </Link>
+<Link href="/cgpa-percentage" className="nav-pill">CGPA to % Converter</Link>
+<Link href="/typing-speed-test" className="nav-pill">Typing Speed Test</Link>
+<Link href="/word-counter" className="nav-pill">Word Counter</Link>
 </div>
 
         </div>
