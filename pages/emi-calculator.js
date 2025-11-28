@@ -11,16 +11,25 @@ export default function EmiCalculatorPage() {
   const [currency, setCurrency] = useState("INR");
   const [emiResult, setEmiResult] = useState(null);
 
-  const calcEmi = (e) => {
-    e.preventDefault();
+  const calcEmi = () => {
     const P = parseFloat(amount);
     const annualRate = parseFloat(rate);
     const T = parseFloat(tenure);
 
-    if (!P || !annualRate || !T) return;
+    if (!P || !annualRate || !T) {
+      setEmiResult(null);
+      return;
+    }
 
     const months = tenureType === "years" ? T * 12 : T;
     const R = annualRate / 12 / 100;
+
+    if (months <= 0 || R < 0) {
+      setEmiResult(null);
+      return;
+    }
+
+    // If 0% interest
     if (R === 0) {
       const emi = P / months;
       setEmiResult({
@@ -74,8 +83,8 @@ export default function EmiCalculatorPage() {
           <div className="badge">Finance Tool</div>
           <h1 className="page-title">Loan EMI Calculator</h1>
           <p className="page-subtitle">
-            Estimate your monthly EMI, total interest and total payment for any loan.
-            Supports multiple currencies.
+            Estimate your monthly EMI, total interest, and total payment for any loan.
+            Works with multiple currencies and both years or months tenure.
           </p>
           <div className="nav-links" style={{ marginTop: 10 }}>
             <Link href="/" className="nav-pill">
@@ -85,7 +94,8 @@ export default function EmiCalculatorPage() {
         </header>
 
         <div className="card">
-          <form onSubmit={calcEmi} className="grid grid-2">
+          {/* Removed <form>, using plain div so sandboxed iframes don't block it */}
+          <div className="grid grid-2">
             <div>
               <div className="field">
                 <label className="label">Loan amount</label>
@@ -151,11 +161,16 @@ export default function EmiCalculatorPage() {
                 </select>
               </div>
 
-              <button type="submit" className="btn">
+              <button
+                type="button"
+                className="btn"
+                onClick={calcEmi}
+              >
                 Calculate EMI
               </button>
               <p className="helper-text">
-                EMI formula: P × R × (1+R)<sup>n</sup> / ((1+R)<sup>n</sup> − 1)
+                EMI formula: P × R × (1+R)<sup>n</sup> / ((1+R)<sup>n</sup> − 1), where R is
+                monthly interest and n is total months.
               </p>
             </div>
 
@@ -196,11 +211,11 @@ export default function EmiCalculatorPage() {
               </div>
 
               <p className="helper-text" style={{ marginTop: 10 }}>
-                This is an approximate estimate only. Always confirm final EMI with your
-                bank or lender.
+                These values are approximate. For final EMI and charges, please confirm
+                with your bank or lender.
               </p>
             </div>
-          </form>
+          </div>
         </div>
       </main>
     </div>
