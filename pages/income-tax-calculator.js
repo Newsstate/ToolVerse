@@ -14,7 +14,8 @@ function calculateTaxNewRegime(income) {
   let tax = 0;
   let remaining = income;
 
-  const useSlab = (limit, rate) => {
+  // renamed from "useSlab" → "applySlab" to avoid hook rule error
+  const applySlab = (limit, rate) => {
     if (remaining <= 0) return 0;
 
     let taxable = 0;
@@ -32,12 +33,12 @@ function calculateTaxNewRegime(income) {
   const firstSlab = Math.min(remaining, 400000);
   remaining -= firstSlab;
 
-  tax += useSlab(400000, 0.05); // 4–8L
-  tax += useSlab(400000, 0.1);  // 8–12L
-  tax += useSlab(400000, 0.15); // 12–16L
-  tax += useSlab(400000, 0.2);  // 16–20L
-  tax += useSlab(400000, 0.25); // 20–24L
-  tax += useSlab(null, 0.3);    // 24L+
+  tax += applySlab(400000, 0.05); // 4–8L
+  tax += applySlab(400000, 0.1);  // 8–12L
+  tax += applySlab(400000, 0.15); // 12–16L
+  tax += applySlab(400000, 0.2);  // 16–20L
+  tax += applySlab(400000, 0.25); // 20–24L
+  tax += applySlab(null, 0.3);    // 24L+
 
   return Math.max(0, tax);
 }
