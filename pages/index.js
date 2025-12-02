@@ -77,6 +77,12 @@ export default function Home() {
 <Link href="/cgpa-percentage" className="nav-pill">CGPA to % Converter</Link>
 <Link href="/typing-speed-test" className="nav-pill">Typing Speed Test</Link>
 <Link href="/word-counter" className="nav-pill">Word Counter</Link>
+<Link href="/home-loan-calculator" className="nav-pill">Home Loan Calculator</Link>
+<Link href="/car-loan-calculator" className="nav-pill">Car Loan Calculator</Link>
+<Link href="/personal-loan-calculator" className="nav-pill">Personal Loan Calculator</Link>
+<Link href="/business-loan-calculator" className="nav-pill">Business Loan Calculator</Link>
+<Link href="/loan-eligibility-calculator" className="nav-pill">Loan Eligibility Calculator</Link>
+<Link href="/loan-comparison-calculator" className="nav-pill">Loan Comparison Calculator</Link>
 </div>
 
         </div>
