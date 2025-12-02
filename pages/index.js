@@ -83,6 +83,53 @@ export default function Home() {
 <Link href="/business-loan-calculator" className="nav-pill">Business Loan Calculator</Link>
 <Link href="/loan-eligibility-calculator" className="nav-pill">Loan Eligibility Calculator</Link>
 <Link href="/loan-comparison-calculator" className="nav-pill">Loan Comparison Calculator</Link>
+<Link href="/mortgage-calculator" className="nav-pill">Mortgage Calculator</Link>
+<Link href="/refinance-calculator" className="nav-pill">Refinance Calculator</Link>
+<Link href="/amortization-calculator" className="nav-pill">Amortization Calculator</Link>
+<Link href="/simple-interest-calculator" className="nav-pill">Simple Interest Calculator</Link>
+<Link href="/mutual-fund-calculator" className="nav-pill">
+  Mutual Fund Calculator
+</Link>
+<Link href="/cagr-calculator" className="nav-pill">
+  CAGR Calculator
+</Link>
+<Link href="/roi-calculator" className="nav-pill">
+  ROI Calculator
+</Link>
+<Link href="/inflation-calculator" className="nav-pill">
+  Inflation Calculator
+</Link>
+<Link href="/inflation-calculator" className="nav-pill">
+    Inflation Calculator
+  </Link>
+
+  <Link href="/gratuity-calculator" className="nav-pill">
+    Gratuity Calculator
+  </Link>
+  <Link href="/pf-contribution-calculator" className="nav-pill">
+    PF Contribution Calculator
+  </Link>
+  <Link href="/hra-calculator" className="nav-pill">
+    HRA Calculator
+  </Link>
+  <Link href="/income-tax-calculator" className="nav-pill">
+    Income Tax Calculator
+  </Link>
+  <Link href="/vat-calculator" className="nav-pill">
+  VAT Calculator
+</Link>
+<Link href="/sales-tax-calculator" className="nav-pill">
+  Sales Tax Calculator
+</Link>
+<Link href="/paycheck-calculator" className="nav-pill">
+  Paycheck Calculator
+</Link>
+<Link href="/salary-to-hourly-calculator" className="nav-pill">
+  Salary to Hourly Calculator
+</Link>
+<Link href="/hourly-wage-calculator" className="nav-pill">
+  Hourly Wage Calculator
+</Link>
 </div>
 
         </div>
