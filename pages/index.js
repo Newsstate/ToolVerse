@@ -130,8 +130,79 @@ export default function Home() {
 <Link href="/hourly-wage-calculator" className="nav-pill">
   Hourly Wage Calculator
 </Link>
+<Link href="/overtime-calculator" className="nav-pill">
+  Overtime Calculator
+</Link>
+<Link href="/pension-calculator" className="nav-pill">
+  Pension Calculator
+</Link>
+<Link href="/retirement-calculator" className="nav-pill">
+  Retirement Calculator
+</Link>
+<Link href="/stock-average-calculator" className="nav-pill">
+  Stock Average Calculator
+</Link>
+<Link href="/intrinsic-value-calculator" className="nav-pill">
+  Intrinsic Value Calculator
+</Link>
+<Link href="/discount-calculator" className="nav-pill">
+  Discount Calculator
+</Link>
+<Link href="/credit-card-calculator" className="nav-pill">
+  Credit Card Interest Calculator
+</Link>
+<Link href="/credit-card-payoff-calculator" className="nav-pill">
+  Credit Card Payoff Calculator
+</Link>
+<Link href="/debt-to-income-ratio-calculator" className="nav-pill">
+  Debt-to-Income Ratio Calculator
+</Link>
+<Link href="/bond-yield-calculator" className="nav-pill">
+  Bond Yield Calculator
+</Link>
+<Link href="/rent-affordability-calculator" className="nav-pill">
+  Rent Affordability Calculator
+</Link>
+<Link href="/bmr-calculator" className="nav-pill">
+  BMR Calculator
+</Link>
+<Link href="/tdee-calculator" className="nav-pill">
+  TDEE Calculator
+</Link>
+<Link href="/body-fat-calculator" className="nav-pill">
+  Body Fat Calculator
+</Link>
+<Link href="/lean-body-mass-calculator" className="nav-pill">
+  Lean Body Mass Calculator
+</Link>
+<Link href="/army-body-fat-calculator" className="nav-pill">
+  Army Body Fat Calculator
+</Link>
+<Link href="/ideal-weight-calculator" className="nav-pill">
+  Ideal Weight Calculator
+</Link>
+<Link href="/macro-calculator" className="nav-pill">
+  Macro Calculator
+</Link>
+<Link href="/calorie-calculator" className="nav-pill">
+  Calorie Calculator
+</Link>
+<Link href="/calories-burned-calculator" className="nav-pill">
+  Calories Burned Calculator
+</Link>
+<Link href="/steps-to-calories-calculator" className="nav-pill">
+  Steps to Calories Calculator
+</Link>
+<Link href="/water-intake-calculator" className="nav-pill">
+  Water Intake Calculator
+</Link>
+<Link href="/sleep-calculator" className="nav-pill">
+  Sleep Calculator
+</Link>
+<Link href="/heart-rate-zone-calculator" className="nav-pill">
+  Heart Rate Zone Calculator
+</Link>
 </div>
-
         </div>
       </main>
     </div>
