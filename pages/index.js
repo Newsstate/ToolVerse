@@ -202,6 +202,138 @@ export default function Home() {
 <Link href="/heart-rate-zone-calculator" className="nav-pill">
   Heart Rate Zone Calculator
 </Link>
+<Link href="/vo2-max-calculator" className="nav-pill">
+  VO₂ Max Calculator
+</Link>
+<Link href="/pace-calculator" className="nav-pill">
+  Pace Calculator
+</Link>
+<Link href="/running-speed-calculator" className="nav-pill">
+  Running Speed Calculator
+</Link>
+<Link href="/pregnancy-calculator" className="nav-pill">
+  Pregnancy Calculator
+</Link>
+<Link href="/ovulation-calculator" className="nav-pill">
+  Ovulation Calculator
+</Link>
+<Link href="/menstrual-cycle-calculator" className="nav-pill">
+  Menstrual Cycle Calculator
+</Link>
+<Link href="/due-date-calculator" className="nav-pill">
+  Due Date Calculator
+</Link>
+<Link href="/pregnancy-weight-gain-calculator" className="nav-pill">
+  Pregnancy Weight Gain Calculator
+</Link>
+<Link href="/blood-alcohol-calculator" className="nav-pill">
+  Blood Alcohol Calculator
+</Link>
+<Link href="/blood-pressure-tracker" className="nav-pill">
+  Blood Pressure Tracker
+</Link>
+<Link href="/gfr-calculator" className="nav-pill">
+  GFR Calculator
+</Link>
+<Link href="/body-surface-area-calculator" className="nav-pill">
+  Body Surface Area Calculator
+</Link>
+<Link href="/waist-hip-ratio-calculator" className="nav-pill">
+  Waist-Hip Ratio Calculator
+</Link>
+<Link href="/scientific-calculator" className="nav-pill">
+  Scientific Calculator
+</Link>
+<Link href="/fraction-calculator" className="nav-pill">
+  Fraction Calculator
+</Link>
+<Link href="/ratio-calculator" className="nav-pill">
+  Ratio Calculator
+</Link>
+<Link href="/proportion-calculator" className="nav-pill">
+  Proportion Calculator
+</Link>
+<Link href="/unit-rate-calculator" className="nav-pill">
+  Unit Rate Calculator
+</Link>
+<Link href="/quadratic-equation-solver" className="nav-pill">
+  Quadratic Equation Solver
+</Link>
+<Link href="/pythagorean-calculator" className="nav-pill">
+  Pythagorean Calculator
+</Link>
+<Link href="/average-calculator" className="nav-pill">
+  Average Calculator
+</Link>
+<Link href="/mean-median-mode-calculator" className="nav-pill">
+  Mean / Median / Mode Calculator
+</Link>
+<Link href="/standard-deviation-calculator" className="nav-pill">
+  Standard Deviation Calculator
+</Link>
+<Link href="/z-score-calculator" className="nav-pill">
+  Z-Score Calculator
+</Link>
+<Link href="/permutation-calculator" className="nav-pill">
+  Permutation Calculator
+</Link>
+<Link href="/combination-calculator" className="nav-pill">
+  Combination Calculator
+</Link>
+<Link href="/probability-calculator" className="nav-pill">
+  Probability Calculator
+</Link>
+<Link href="/limit-calculator" className="nav-pill">
+  Limit Calculator
+</Link>
+<Link href="/derivative-calculator" className="nav-pill">
+  Derivative Calculator
+</Link>
+<Link href="/integral-calculator" className="nav-pill">
+  Integral Calculator
+</Link>
+<Link href="/logarithm-calculator" className="nav-pill">
+  Logarithm Calculator
+</Link>
+<Link href="/exponent-calculator" className="nav-pill">
+  Exponent Calculator
+</Link>
+<Link href="/matrix-calculator" className="nav-pill">
+  Matrix Calculator
+</Link>
+<Link href="/binary-calculator" className="nav-pill">
+  Binary Calculator
+</Link>
+<Link href="/hex-calculator" className="nav-pill">
+  Hex Calculator
+</Link>
+<Link href="/roman-numeral-converter" className="nav-pill">
+  Roman Numeral Converter
+</Link>
+<Link href="/scientific-notation-converter" className="nav-pill">
+  Scientific Notation Converter
+</Link>
+<Link href="/distance-calculator" className="nav-pill">
+  Distance Calculator
+</Link>
+<Link href="/area-calculator" className="nav-pill">
+  Area Calculator
+</Link>
+<Link href="/volume-calculator" className="nav-pill">
+  Volume Calculator
+</Link>
+<Link href="/surface-area-calculator" className="nav-pill">
+  Surface Area Calculator
+</Link>
+<Link href="/half-life-calculator" className="nav-pill">
+  Half-life Calculator
+</Link>
+<Link href="/molarity-calculator" className="nav-pill">
+  Molarity Calculator
+</Link>
+<Link href="/ph-calculator" className="nav-pill">
+  pH Calculator
+</Link>
 </div>
         </div>
       </main>
