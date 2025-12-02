@@ -334,6 +334,70 @@ export default function Home() {
 <Link href="/ph-calculator" className="nav-pill">
   pH Calculator
 </Link>
+<Link href="/length-converter" className="nav-pill">
+  Length Converter
+</Link>
+<Link href="/weight-converter" className="nav-pill">
+  Weight Converter
+</Link>
+<Link href="/temperature-converter" className="nav-pill">
+  Temperature Converter
+</Link>
+<Link href="/speed-converter" className="nav-pill">
+  Speed Converter
+</Link>
+<Link href="/time-converter" className="nav-pill">
+  Time Converter
+</Link>
+<Link href="/area-converter" className="nav-pill">
+  Area Converter
+</Link>
+<Link href="/volume-converter" className="nav-pill">
+  Volume Converter
+</Link>
+<Link href="/storage-data-converter" className="nav-pill">
+  Storage / Data Converter
+</Link>
+<Link href="/angle-converter" className="nav-pill">
+  Angle Converter
+</Link>
+<Link href="/energy-converter" className="nav-pill">
+  Energy Converter
+</Link>
+<Link href="/force-converter" className="nav-pill">
+  Force Converter
+</Link>
+<Link href="/fuel-efficiency-converter" className="nav-pill">
+  Fuel Efficiency Converter
+</Link>
+<Link href="/shoe-size-converter" className="nav-pill">
+  Shoe Size Converter
+</Link>
+<Link href="/ring-size-converter" className="nav-pill">
+  Ring Size Converter
+</Link>
+<Link href="/clothing-size-converter" className="nav-pill">
+  Clothing Size Converter
+</Link>
+<Link href="/json-to-xml-converter" className="nav-pill">
+  JSON to XML Converter
+</Link>
+<Link href="/csv-to-json-converter" className="nav-pill">
+  CSV to JSON Converter 
+</Link>
+<Link href="/number-base-converter" className="nav-pill">
+  Number Base Converter
+</Link>
+<Link href="/binary-to-text-converter" className="nav-pill">
+  Binary to Text Converter
+</Link>
+<Link href="/hex-to-rgb-converter" className="nav-pill">
+  Hex to RGB Converter
+</Link>
+<Link href="/unicode-converter" className="nav-pill">
+  Unicode Converter
+</Link>
+
 </div>
         </div>
       </main>
