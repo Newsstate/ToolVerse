@@ -397,6 +397,21 @@ export default function Home() {
 <Link href="/unicode-converter" className="nav-pill">
   Unicode Converter
 </Link>
+<Link href="/character-counter" className="nav-pill">
+  Character Counter
+</Link>
+<Link href="/case-converter" className="nav-pill">
+  Case Converter
+</Link>
+<Link href="/grammar-checker" className="nav-pill"> 
+  Grammar Checker
+</Link>
+<Link href="/spell-checker" className="nav-pill">
+  Spell Checker
+</Link>
+<Link href="/text-summarizer" className="nav-pill">
+  Text Summarizer
+</Link>
 
 </div>
         </div>
