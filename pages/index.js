@@ -412,6 +412,51 @@ export default function Home() {
 <Link href="/text-summarizer" className="nav-pill">
   Text Summarizer
 </Link>
+<Link href="/image-compressor" className="nav-pill">
+  Image Tools (Compressor / Resizer / Cropper)
+</Link>
+<Link href="/png-to-jpg-converter" className="nav-pill">
+  PNG to JPG Converter
+</Link>
+<Link href="/webp-converter" className="nav-pill">
+  WebP Converter
+</Link>
+<Link href="/background-remover" className="nav-pill">
+  Background Remover
+</Link>
+<Link href="/photo-enhancer" className="nav-pill">
+  Photo Enhancer
+</Link>
+<Link href="/blur-background-tool" className="nav-pill">
+  Blur Background Tool
+</Link>
+<Link href="/image-color-picker" className="nav-pill">
+  Image Color Picker
+</Link>
+<Link href="/favicon-generator" className="nav-pill">
+  Favicon Generator
+</Link>
+<Link href="/meme-generator" className="nav-pill">
+  Meme Generator
+</Link>
+<Link href="/qr-code-generator" className="nav-pill">
+  QR Code Generator
+</Link>
+<Link href="/barcode-generator" className="nav-pill">
+  Barcode Generator
+</Link>
+<Link href="/logo-maker" className="nav-pill">
+  Logo Maker
+</Link>
+<Link href="/thumbnail-downloader" className="nav-pill">
+  YouTube Thumbnail Downloader
+</Link>
+<Link href="/youtube-thumbnail-generator" className="nav-pill">
+  YouTube Thumbnail Generator
+</Link>
+<Link href="/text-to-image-generator" className="nav-pill">
+  Text to Image Generator
+</Link>
 
 </div>
         </div>
